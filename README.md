@@ -28,10 +28,13 @@ This quiz features a simple, easy layout that means you can either play the quiz
 
 
 
+![Multiple Choice with Incorrect](https://raw.githubusercontent.com/oliviaowen1/Timed_Coding_Quiz/main/Assets/incorrect.png)
+
+
+
 ![Multiple Choice with Correct](https://raw.githubusercontent.com/oliviaowen1/Timed_Coding_Quiz/main/Assets/correct.png)
 
 
-![Multiple Choice with Incorrect](https://raw.githubusercontent.com/oliviaowen1/Timed_Coding_Quiz/main/Assets/incorrect.png)
 
 There is also a timer showing you how much time is remaining, which will also go down if answered incorrectly. The bar at the top tracks how far you are through the questions. The score element keeps track of the amount of questions you have answered correctly and this also holds this number for when you finish the quiz and you go to the next page. On this page you are able to enter a name and keep your high score on saved to the leaderboard. From here you are able to either play again or go home.
 
@@ -43,25 +46,14 @@ There is also a timer showing you how much time is remaining, which will also go
 ![Leaderboard](https://raw.githubusercontent.com/oliviaowen1/Timed_Coding_Quiz/main/Assets/Screenshot%202021-01-10%20at%2022.48.11.png)
 
 
-
-![]()
-
-
-
-![]()
-
-
-
-![]()
-
-
-![]()
-
-
-
 ## Improvements
 
+If i were to do this again, or have longer to do it i would include a function that clears the high scores/leaderboard, so you are able to clear the local storage and start this again.
+
 ## References
+
+With many thanks to:
+
 [Brian Design Youtube Video](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=1542s)
 
 [Federico Dossena](https://fdossena.com/?p=html5cool/buttons/i.frag)
