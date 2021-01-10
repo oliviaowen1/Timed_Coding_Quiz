@@ -1,16 +1,31 @@
-var question = document.querySelector("#question");
-var choices = Array.from(document.querySelectorAll(".choice-text"));
-var progressText = document.querySelector("#progressText");
-var scoreText = document.querySelector("#score");
-var progressBarFull = document.querySelector("#progressBarFull");
+var question = document.querySelector('#question');
+var choices = Array.from(document.querySelectorAll('.choice-text'));
+var progressText = document.querySelector('#progressText');
+var scoreText = document.querySelector('#score');
+const progressBarFull = document.querySelector('#progressBarFull');
 
-var currentQuestion = {};
-var acceptingAnswers = true;
-var score = 0;
-var questionCounter = 0;
-var availableQuestions = [];
+let currentQuestion = {}
+let acceptingAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
+
+var timeleft = 75;
+
+    var quizTimer = setInterval(function function1() {
+        document.getElementById("countdown").innerHTML = timeleft +
+            "&nbsp" + "seconds remaining";
+
+        timeleft -= 1;
+        if (timeleft <= 0) {
+            clearInterval(quizTimer);
+            document.getElementById("countdown").innerHTML = "Time is up!"
+        }
+    }, 1000);
+
 
 // Below are the questions that we will use for the quiz
+
 var questions = [
     {
         question: "What does HTML stand for?",
@@ -55,78 +70,80 @@ var questions = [
 ]
 
 // Const variables must have a value when they are decalred and they cannot be reassigned.
-const score_points = 1
-const max_questions = 5
+
+const SCORE_POINTS = 100
+const MAX_QUESTIONS = 4
 
 // The below function is to start the game
+
 startGame = () => {
     questionCounter = 0
     score = 0
-    // The ...questions below gets all of the values and questions from the above array
     availableQuestions = [...questions]
     getNewQuestion()
 }
 
 // Below we are defininng the funtion getNewQuestion, which we are using above
+
 getNewQuestion = () => {
-    // below says if the there are no new questions or the questions counter is above the max questions number
+     // below says if the there are no new questions or the questions counter is above the max questions number
     // then it will end the quiz and take us to the end page
-    if (availableQuestions.length === 0 || questionCounter > max_questions) {
+    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
-        return window.location.assing('./end.html')
+
+        return window.location.assign('/end.html')
     }
+
     questionCounter++
     // Below is the text that tells you which question you are on
-    progressText.textContent = "Question ${questionCounter} of ${max_questions}"
-
+    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+    progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
+    
     // The below calculates the length of the available questions
-    const questionsIndex = math.floor(math.random * availableQuestions.length)
-    // This keeps track of which question we are on from our array of questions
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+   // This keeps track of which question we are on from our array of questions
     currentQuestion = availableQuestions[questionsIndex]
     // This knows which question to ask
-    question.textContent = currentQuestion.question 
+    question.innerText = currentQuestion.question
 
     // below knows what choice we have clicked on
     choices.forEach(choice => {
-        const number = choice.dataset["number"]
-        choice.textContent = currentQuestion["choice" + number]
+        const number = choice.dataset['number']
+        choice.innerText = currentQuestion['choice' + number]
     })
 // Splicing takes an element from an array 
     availableQuestions.splice(questionsIndex, 1)
     // The below is true as to allow us to take the answers from the user
     acceptingAnswers = true
 }
-
 // The below will increase your score if it is correct
 choices.forEach(choice => {
-    choice.addEventListener("click", e => {
+    choice.addEventListener('click', e => {
         if(!acceptingAnswers) return
 
         acceptingAnswers = false
         const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset["number"]
+        const selectedAnswer = selectedChoice.dataset['number']
 
-        var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
 
-        if(classToApply === "correct") {
-            incrementScore(score_points)
+        if(classToApply === 'correct') {
+            incrementScore(SCORE_POINTS)
         }
-
 
         selectedChoice.parentElement.classList.add(classToApply)
 
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply)
             getNewQuestion()
-            
-        }, 1000);
-    })
 
+        }, 1000)
+    })
 })
 
 incrementScore = num => {
-    score =+num
-    scoreText.textContent = score
+    score +=num
+    scoreText.innerText = score
 }
 
 startGame()
