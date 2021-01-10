@@ -27,11 +27,12 @@ saveHighScore = e => {
     highScores.sort((a,b) => {
         return b.score - a.score
     })
-
+// The below takes the scores from the array and allows the submit button to hold in the local storage
+// this then takes you to the highscores page
     highScores.splice(5)
 
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('/')
+    window.location.assign('./highscores.html')
 
     
 }
