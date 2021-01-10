@@ -87,7 +87,7 @@ align-items: center;
 #progressBar {
     width: 20rem;
     height: 3rem;
-    border: 0.2rem solid rgb(11,223,36);
+    border: 0.2rem solid purple);
     margin-top: 2rem;
     border-radius: 50px;
     overflow: hidden;
@@ -95,7 +95,7 @@ align-items: center;
 
 #progressBarFull {
     height: 100%;
-    background: rgb(11,223,36);
+    background:purple;
     width: 0%;
 }
 
@@ -103,4 +103,18 @@ align-items: center;
     .choice-container {
         min-width: 40rem;
     }
+}
+#username {
+    display:inline-block;
+    padding:0.5em 3em;
+    border:0.16em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
 }

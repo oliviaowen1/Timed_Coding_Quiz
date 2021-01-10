@@ -71,8 +71,8 @@ var questions = [
 
 // Const variables must have a value when they are decalred and they cannot be reassigned.
 
-const SCORE_POINTS = 100
-const MAX_QUESTIONS = 4
+const SCORE_POINTS = 1
+const MAX_QUESTIONS = 5
 
 // The below function is to start the game
 
@@ -91,7 +91,7 @@ getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/end.html')
+        return window.location.assign('./end.html')
     }
 
     questionCounter++
