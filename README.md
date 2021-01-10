@@ -43,6 +43,7 @@
 [Brian Design Youtube Video](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=1542s)
 
 [Karen Opoku](https://github.com/Karen-O94)
+
 [Alisha Saleh](https://github.com/AlishaSaleh)
 
 
