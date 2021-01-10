@@ -2,8 +2,9 @@ body {
     background-color: thistle;
     font-family: Arial, Helvetica, sans-serif;
 }
-h1 {
+h1, p {
     color:white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .container {
 display: flex;
@@ -41,4 +42,22 @@ align-items: center;
 .button:hover {
     color:#000000;
     background-color:#FFFFFF;
+    }
+.choice-container {
+    display:inline-block;
+    padding:0.5em 3em;
+    border:0.16em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
+}
+.choice-container:hover {
+    color:#000000;
+    background-color: purple;
     }
