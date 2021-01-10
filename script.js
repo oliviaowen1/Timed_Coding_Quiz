@@ -5,6 +5,7 @@ const choices = Array.from(document.querySelectorAll('.choice-text'));
 const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
+var quizTimer = document.getElementById("timer")
 
 let currentQuestion = {}
 let acceptingAnswers = true
@@ -13,18 +14,20 @@ let questionCounter = 0
 let availableQuestions = []
 
 
-// var timeleft = 75;
+var timeleft = 60;
 
-//     var quizTimer = setInterval(function function1() {
-//         document.getElementById("countdown").innerHTML = timeleft +
-//             "&nbsp" + "seconds remaining";
+    var quizTimer = setInterval(function function1() {
+        document.getElementById("countdown").innerHTML = timeleft +
+            "&nbsp" + "s remaining";
 
-//         timeleft -= 1;
-//         if (timeleft <= 0) {
-//             clearInterval(quizTimer);
-//             document.getElementById("countdown").innerHTML = "Time is up!"
-//         }
-//     }, 1000);
+        timeleft -= 1;
+        if (timeleft <= 0) {
+            clearInterval(quizTimer);
+            document.getElementById("countdown").innerHTML = "Time is up!"
+            // The below takes you straight to the end page when the timer runs out
+            return window.location.assign('./end.html')
+        }
+    }, 1000);
 
 
 // Below are the questions that we will use for the quiz
@@ -129,20 +132,27 @@ choices.forEach(choice => {
         const selectedAnswer = selectedChoice.dataset['number']
 
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
-
+// This means if answer is correct increase the score by the const score points which is 1
         if(classToApply === 'correct') {
             incrementScore(SCORE_POINTS)
         }
-
+// Otherwise dont do anything apart from minus time - see function below
+        else {
+            minusTime ();
+        }
         selectedChoice.parentElement.classList.add(classToApply)
 
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
+            selectedChoice.parentElement.classList.remove(classToApply);
             getNewQuestion()
 
         }, 1000)
     })
 })
+// The below function removes 10 seconds from the time if the answer given is incorrect
+function minusTime () {
+    (timeleft = timeleft - 10)
+};
 
 incrementScore = num => {
     score +=num
