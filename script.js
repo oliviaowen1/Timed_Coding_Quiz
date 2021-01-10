@@ -2,26 +2,26 @@ var question = document.querySelector('#question');
 var choices = Array.from(document.querySelectorAll('.choice-text'));
 var progressText = document.querySelector('#progressText');
 var scoreText = document.querySelector('#score');
-const progressBarFull = document.querySelector('#progressBarFull');
+var progressBarFull = document.querySelector('#progressBarFull');
 
-let currentQuestion = {}
-let acceptingAnswers = true
-let score = 0
-let questionCounter = 0
-let availableQuestions = []
+var currentQuestion = {}
+var acceptingAnswers = true
+var score = 0
+var questionCounter = 0
+var availableQuestions = []
 
-var timeleft = 75;
+// var timeleft = 75;
 
-    var quizTimer = setInterval(function function1() {
-        document.getElementById("countdown").innerHTML = timeleft +
-            "&nbsp" + "seconds remaining";
+//     var quizTimer = setInterval(function function1() {
+//         document.getElementById("countdown").innerHTML = timeleft +
+//             "&nbsp" + "seconds remaining";
 
-        timeleft -= 1;
-        if (timeleft <= 0) {
-            clearInterval(quizTimer);
-            document.getElementById("countdown").innerHTML = "Time is up!"
-        }
-    }, 1000);
+//         timeleft -= 1;
+//         if (timeleft <= 0) {
+//             clearInterval(quizTimer);
+//             document.getElementById("countdown").innerHTML = "Time is up!"
+//         }
+//     }, 1000);
 
 
 // Below are the questions that we will use for the quiz
@@ -29,11 +29,11 @@ var timeleft = 75;
 var questions = [
     {
         question: "What does HTML stand for?",
-        choice1: "Hyper Text Mark-Up Language",
+        choice1: "Hyper-Text Mark-Up Language",
         choice2: "Hard To Make-Up Language",
         choice3: "Hyperactive Text Making Little-sense",
         choice4: "Hard To Mix-Up Language",
-        answer: "Hyper Text Mark-Up Language",
+        answer: "Hyper-Text Mark-Up Language",
     },
     {
         question: "Which language is used to style web pages?",
