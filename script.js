@@ -1,14 +1,17 @@
-var question = document.querySelector('#question');
-var choices = Array.from(document.querySelectorAll('.choice-text'));
-var progressText = document.querySelector('#progressText');
-var scoreText = document.querySelector('#score');
-var progressBarFull = document.querySelector('#progressBarFull');
+// Const variables must have a value when they are decalred and they cannot be reassigned.
+// Using VAR below meant that it did not work as the variable could be redefined and as it did not need to be we can use let and const
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.choice-text'));
+const progressText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+const progressBarFull = document.querySelector('#progressBarFull');
 
-var currentQuestion = {}
-var acceptingAnswers = true
-var score = 0
-var questionCounter = 0
-var availableQuestions = []
+let currentQuestion = {}
+let acceptingAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
+
 
 // var timeleft = 75;
 
@@ -29,47 +32,47 @@ var availableQuestions = []
 var questions = [
     {
         question: "What does HTML stand for?",
-        choice1: "Hyper-Text Mark-Up Language",
-        choice2: "Hard To Make-Up Language",
-        choice3: "Hyperactive Text Making Little-sense",
-        choice4: "Hard To Mix-Up Language",
-        answer: "Hyper-Text Mark-Up Language",
+        choice1: "1 - Hyper-Text Mark-Up Language",
+        choice2: "2- Hard To Make-Up Language",
+        choice3: "3 - Hyperactive Text Making Little-sense",
+        choice4: "4 - Hard To Mix-Up Language",
+        answer: 1,
     },
     {
         question: "Which language is used to style web pages?",
-        choice1: "HTML",
-        choice2: "jQuery",
-        choice3: "CSS",
-        choice4: "Javascript",
-        answer: "CSS"
+        choice1: "1 - HTML",
+        choice2: "2 - jQuery",
+        choice3: "3 - CSS",
+        choice4: "4 - Javascript",
+        answer: 3
     },
     {
         question: "In which font do you write code?",
-        choice1: "Upper Case",
-        choice2: "Lower Case",
-        choice3: "All Capital Letters",
-        choice4: "Camel Case",
-        answer: "Camel Case",
+        choice1: "1 - Upper Case",
+        choice2: "2 - Lower Case",
+        choice3: "3 - All Capital Letters",
+        choice4: "4 - Camel Case",
+        answer: 4,
     },
     {
         question: "For, Do and While, are all types of what",
-        choice1: "Objects",
-        choice2: "Arrays",
-        choice3: "Loops",
-        choice4: "Document Types",
-        answer: "Loops",
+        choice1: "1 - Objects",
+        choice2: "2 - Arrays",
+        choice3: "3 - Loops",
+        choice4: "4 - Document Types",
+        answer: 3,
     },
     {
         question: "Who invented HTML?",
-        choice1: "Steve Jobs",
-        choice2: "Tim Berners-Lee",
-        choice3: "Mark Zuckerberg",
-        choice4: "Alan Turing",
-        answer: "Tim Berners-Lee",
+        choice1: "1 - Steve Jobs",
+        choice2: "2 - Tim Berners-Lee",
+        choice3: "3 - Mark Zuckerberg",
+        choice4: "4 - Alan Turing",
+        answer: 2,
     },
 ]
 
-// Const variables must have a value when they are decalred and they cannot be reassigned.
+
 
 const SCORE_POINTS = 1
 const MAX_QUESTIONS = 5
